@@ -10,9 +10,9 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 from htmlTemplates import css, bot_template, user_template
 
-OPEN_AI_KEY = '' # insert 
-PINECONE_API_KEY = '' # insert 
-PINECONE_API_ENV = '' # insert 
+OPEN_AI_KEY = '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' # insert 
+PINECONE_API_KEY = '1ce5d773-0084-43c8-8cc0-350904058516' # insert 
+PINECONE_API_ENV = 'asia-southeast1-gcp-free' # insert 
 
 # gets the pdf text
 def get_pdf_text(pdf_docs):
@@ -35,13 +35,11 @@ def create_embeddings(text_chunks):
     text_chunk_embeddings = embeddings.embed_documents([text for text in text_chunks])
     return text_chunk_embeddings
 
-# instantiate the GPT 3.5 turbo model
-
 # initialize pinecone
 pinecone.init(
     api_key=PINECONE_API_KEY,  
     environment=PINECONE_API_ENV, 
-    index_name = "quadstest1"
+    index_name = "retro-test"
 )
 
 # pinecone store embeddings
