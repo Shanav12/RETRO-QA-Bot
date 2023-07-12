@@ -1,0 +1,195 @@
+Correct Answer: 58
+Correct IDK: 15
+Uses Open AI: 8
+Wrong Answer: 6
+Says IDK: 6
+Correct but shouldn't: 3
+
+File Title,Question:,Response:,Result:,Notes:
+Linear Algebra:,Suppose that A is a 3x7 matrix such that the equation AX=B is solvable for all B in R3. Then A has rank 3,"Yes, that is correct. According to Theorem 2.16, if the equation AX=B is solvable for all B in R3, then the rank of A must be 3.",Correct Answer,Even Highlights formula number within textbook,
+,Suppose A is an invertible matrix and B is any matrix for which AB is defined then the matrices AB and B need not have the same rank,"No, it is not always true that the rank of AB is equal to the rank of B, given an invertible matrix A and any matrix B such that the product AB is defined. Theorem 3.3 (Rank of Products) states that rank(AB) ≤ rank(B) and rank(AB) ≤ rank(A), but it does not necessarily mean that the ranks are equal. In fact, if A is an invertible matrix, then the rank of AB is equal to the rank of B only if B is also invertible",Correct Answer, Correct Formula Number
+,what is the intermediate value theorem,The context provided does not contain information about the Intermediate Value Theorem.,Correct IDK,Testing out false positives
+,what is the difference between a row space and a column space,"The row space of a matrix A is the subspace spanned by the rows of A, while the column space of A is the subspace spanned by the columns of A. In other words, the row space is a subspace of the row vectors of A, while the column space is a subspace of the column vectors of A. The row space and the column space can have different dimensions and bases, and they provide different information about the matrix A.",Correct Answer,Question that is not explicitely stated anywhere
+,how are eigenvalues used in real life,"Eigenvalues have many applications in real life, including:\n\n1. In physics, eigenvalues are used to study the behavior of vibrating systems, such as the oscillations of a guitar string or the vibrations of a bridge.\n\n2. In engineering, eigenvalues are used to analyze the stability of structures, such as buildings and bridges, and to design control systems for machines and robots.\n\n3. I",Correct but shouldn't,"Should have not known the answer. Though the answer is correct, it picked it up from the wrong context of real life applications"
+Wikepedia: Amazon RF,How many species of insects are known in the region?,The given context does not provide information about the number of species of insects in the Amazon region.,Correct Answer
+,During what time did the rainforest spanned a narrow band?,The rainforest spanned a relatively narrow band during the Oligocene period.,Correct Answer,
+All You Need Is Attention,What is a transformer?,A Transformer is a model architecture used in natural language processing that relies entirely on an attention mechanism to draw global dependencies between input and output instead of recurrence. It allows for significantly more parallelization and can achieve state-of-the-art results in translation tasks while being trained much faster than architectures based on recurrent or convolutional layers. It is also being investigated for use in other tasks beyond text and for making generation less sequential.,Correct Answer,Correctly describes a term explained in the document,
+,What is the debt ceiling?,The given context does not provide information about the debt ceiling.,Correct IDK,Correctly doesn't know about a term that isn't defined in the article,
+,What is attention?,"Attention in the context of natural language processing refers to a mechanism that allows neural networks to focus on specific parts of input data, such as words in a sentence, when making predictions or generating outputs. It has been shown to be an effective tool in tasks such as machine translation and summarization.",Correct Answer,Defines attention correctly in the context of the document,
+,What is the transformers movie about?,"
+I'm sorry, but the context provided does not contain information about the plot of the Transformers movie.",Correct IDK,Correctly states that it does not know about the movie as transformers in this setting has nothing to do with the movie,
+,What is a dot product?,"The dot product of two vectors is a scalar value obtained by multiplying the corresponding components of the vectors and summing them up. It is also known as the inner product or scalar product. In other words, if we have two vectors A and B, then their dot product is given by A · B = |A||B|cos(θ), where θ is the angle between the two vectors, and |A| and |B| are their magnitudes. The dot product is used in various applications such as projection, finding the angle between two vectors, and determining whether two vectors are orthogonal (perpendicular) to each other.",Correct but shouldn't,Shouldn't know this information as this isn't included in the document,
+Predictions for SoCal,What is Southern California often abbreviated as?,The abbreviation for Southern California is SoCal.,Correct Answer,
+,"Despite being traditionall described as ""eight counties"", how many counties does this region actually have?","The region traditionally described as ""eight counties"" in Southern California actually comprises California's southernmost 10 counties.",Correct Answer,
+,What is a major importance of Southern California in relation to California and the United States?,"Southern California is a major economic center for the state of California and the United States. It comprises California's southernmost 10 counties and is a geographic and cultural region that is traditionally described as ""eight counties"" based on demographics and economic ties. It is also a significant region in terms of population, tourism, and entertainment industries.",Correct Answer,
+,"What are the ties that best described what the ""eight counties"" are based on?","The traditional description of the ""eight counties"" in Southern California, based on demographics and economic ties, includes Imperial, Los Angeles, Orange, Riverside, San Bernardino, San Diego, Santa Barbara, and Ventura.",Correct Answer,
+,The reasons for the las two counties to be added are based on what?,"The last two counties, Kern and San Luis Obispo, were added to the traditional description of the ""eight counties"" in Southern California based on historical political divisions.",Correct Answer,
+,What counties does the more extensive eight county definition of SoCal include?,"The more extensive definition of Southern California includes 10 counties: Imperial, Los Angeles, Orange, Riverside, San Bernardino, San Diego, Santa Barbara, Ventura, Kern, and San Luis Obispo.",Wrong Answer,"Should say ""i dont know""",
+,What additional two counties make ten counties into the traditional definition of SoCal include?,The additional two counties that make the traditional definition of Southern California include ten counties are Kern and San Luis Obispo counties.,Wrong Answer,"Should say ""i dont know""",
+,Where is the center of economic activity for the United States?,"I'm sorry, but the given context does not provide information about the center of economic activity for the United States. The Constitution of the United States does not mention anything about the center of economic activity.",Says IDK,possibly looks at previous documents or possibly chat gpt and but somewhat correct,
+Black Death,Where did the black death originate?,"The Black Death is thought to have originated in the arid plains of Central Asia, where it then travelled along the Silk Road, reaching Crimea by 1343. From there, it was most likely carried by Oriental rat fleas living on the black rats that were regular passengers on merchant ships.",Correct Answer,
+,How did the black death make it to the Mediterranean and Europe?,"The Black Death is believed to have originated in Central Asia and then traveled along the Silk Road, reaching Crimea by 1343. From there, it was most likely carried by Oriental rat fleas living on the black rats that were regular passengers on merchant ships. It spread throughout the Mediterranean and Europe, estimated to have killed 30-60% of Europe's total population. It entered western Europe from southern Russia and reached Alexandria in Egypt in 1347, probably through the port's trade with Constantinople, and then spread to other cities in the Middle East. From Italy, the disease spread northwest across Europe, striking France, Spain, Portugal, and England by June 1348, then turned and spread east through Germany and Scandinavia from 1348 to 1350.",Correct Answer,
+,How much of the European population did the black death kill?,The Black Death is estimated to have killed 30-60% of Europe's total population.,Correct Answer,
+,When did the world's population finally recover from the black death?,The world population as a whole did not recover to pre-plague levels until the 17th century.,Correct Answer,
+,When did the Chinese famine begin?,The Chinese famine started in 1331.,Wrong Answer,hallucination,
+,In what country is Constantinople?,Constantinople is located in Turkey.,Correct but shouldn't,didn't get this info from the pdf since its not there - the model found it on its own,
+,What is the term for a disease that is not commonly present?,The text does not provide a specific term for a disease that is not commonly present.,Says IDK,successfully identifies if something is not in the textbook,
+,In what year did Jani Beg become leader of the Mongol army?,The given context does not provide information about the specific year when Jani Beg became the leader of the Mongol army.,Says IDK,successfully identifies if something is not in the textbook,
+,What country's ship landed at Oskoy?,"A ship carrying the disease landed at Askøy, which is in Norway.",Wrong Answer,
+,What effect did the plague have on the Middle East?,"The Black Death struck various countries in the Middle East during the pandemic, leading to serious depopulation and permanent change in both economic and social structures. However, the extent and documentation of this impact are not mentioned in the given context.",Correct Answer,
+,When had the plague reached Alexandria?,"The plague reached Alexandria in Egypt by autumn 1347, probably through the port's trade with Constantinople and ports on the Black Sea.",Correct Answer,
+Computational Complexity Theory,What two fields of theoretical computer science closely mirror computational complexity theory?,The two fields of theoretical computer science that closely mirror computational complexity theory are analysis of algorithms and computability theory,Correct Answer,
+,By how many kilometers does the traveling salesman problem seek to classify a route between the 15 largest cities in Germany?,The context given does not provide information on the distance that the traveling salesman problem seeks to classify for a route between the 15 largest cities in Germany.,Says IDK,
+,"In a computational problem, what can be described as a string over an alphabet?",Uses Open AI,also gives wrong answer ??,
+,What is the name of the alphabet is most commonly used in a problem instance?,"The binary alphabet (i.e., the set {0,1}) is most commonly used in a problem instance in computational problems.",Correct Answer,
+,What encoding decision needs to be made in order to determine an exact definition of the formal language?,"To obtain a precise definition of the language associated with a decision problem, one has to decide how the instances of the problem are encoded as binary strings.",Correct Answer,
+Constitution,Describe the 1st Amendment to a 5 year old,"The 1st Amendment is a rule that says the government can't make a law about religion or stop people from practicing their religion. It also says that people can say what they want, write what they want, and gather together peacefully. They can also ask the government to fix things they think are wrong.",Correct Answer,
+,"Summarize the Bill of Rights in 3 sentences
+","The Bill of Rights is the first 10 amendments to the United States Constitution. It guarantees certain fundamental rights and freedoms to the American people. These include the freedom of religion, speech, and the press, the right to bear arms, protection against unreasonable searches and seizures, and the right to a fair trial.",Correct Answer,
+,"Who was the 40th President of America?
+",The 40th President of the United States was Ronald Reagan.,Uses Open AI,
+,Why did George Bush declare war on Iraq?,"The given context does not provide information specifically about George Bush declaring war on Iraq. Therefore, I don't have the necessary information to answer your question.
+",Correct IDK,
+,"Who were the nine Supreme Court Justices in 2010?
+","I don't know the answer to that question.
+",Correct IDK,
+,"Why are there nine justices on the supreme court?
+","The Constitution does not specify the exact number of justices that should serve on the Supreme Court. The number of justices has varied throughout history, but since 1869, there have been nine justices on the Supreme Court. This number was set by Congress through legislation. The reason for having nine justices is primarily based on tradition and practical considerations. It allows for an odd number of justices, which helps prevent tie votes and ensures a majority decision can be reached. Additionally, having nine justices allows for a diverse range of perspectives and opinions on the Court.
+",Uses Open AI,
+,"How many presidents have there been?
+","There have been 46 presidents in the United States.
+",Uses Open AI,
+,"Why did FDR wish to expand the supreme court?
+","The given context does not provide any information about FDR's wish to expand the Supreme Court. Therefore, I do not know the reason behind FDR's wish to expand the Supreme Court.",Correct IDK,
+,"Who is Joe Biden?
+","Joe Biden is the current President of the United States. He was elected in 2020 and took office on January 20, 2021. Prior to becoming President, Biden served as Vice President under President Barack Obama from 2009 to 2017. He has also had a long career in politics, serving as a U.S. Senator from Delaware from 1973 to 2009.",Uses Open AI,
+,"How many amendments are there in the Constitution?
+","There are 27 amendments in the Constitution.
+",Correct Answer,
+,"Which Amendment essentially overruled another?
+","The 21st Amendment essentially overruled the 18th Amendment.
+",Correct Answer,
+,"What is the process of passing an Amendment to the US Constitution?
+","The process for passing an amendment to the US Constitution is outlined in Article V of the Constitution. It requires two steps: proposal and ratification.
+Proposal: An amendment can be proposed in two ways: a) By Congress: Two-thirds of both the House of Representatives and the Senate must vote in favor of the proposed amendment. b) By a Constitutional Convention: Two-thirds of the state legislatures can request Congress to call a Constitutional Convention to propose amendments. However, this method has never been used.
+
+Ratification: After an amendment is proposed, it must be ratified by three-fourths of the state legislatures or by special state conventions. The method of ratification is determined by Congress when proposing the amendment.
+
+Once an amendment is ratified by the required number of states, it becomes part of the Constitution.",Correct Answer,
+,"What is an executive order?
+","An executive order is a directive or command issued by the President of the United States that manages operations of the federal government. It has the force of law and is used to implement and enforce policies, laws, and regulations.
+",Correct Answer,
+,"How can Congress override a Presidential veto?
+","Congress can override a Presidential veto by obtaining a two-thirds majority vote in both the House of Representatives and the Senate. If the bill is vetoed by the President, it is sent back to Congress. If two-thirds of both houses vote in favor of the bill, it becomes a law despite the President's veto.
+",Correct Answer,
+,"Can a President override legislation that Congress passes?
+","No, a President cannot override legislation that Congress passes. The President has the power to veto a bill, which means rejecting it and sending it back to Congress with their objections. However, Congress can override a presidential veto by a two-thirds majority vote in both the Senate and the House of Representatives.
+",Correct Answer,
+,Explain US Presidential elections to a five year old child in 1 paragraph,"In the United States, we have a special way of choosing our President. Every four years, people called ""electors"" from each state vote for the President. The person who gets the most votes from the electors becomes the President. If no one gets the most votes, then a group of important people called the House of Representatives chooses the President. The Vice President is chosen in a similar way, but by the Senate. It's like a big game where the person with the most votes wins, and they get to be in charge of our country.
+",Correct Answer,
+Foundations of Data Science: Cornell University,"What is the law of large numbers?
+","The Law of Large Numbers states that with high probability, the average of a large number of samples from a random variable will be close to the expectation of that random variable. In other words, as the number of samples increases, the average of those samples will converge to the expected value of the random variable.",Correct Answer,
+,"Who is Drake?
+",I don't know who Drake is.,Correct IDK,
+,"Describe how the programming framework React works
+","I don't know the answer to that question.
+",Correct IDK,
+,"Explain what probability is to me as if I were a grandpa sipping on some nice hot coffee
+","The definition of probability is the likelihood or chance of an event occurring. It is a numerical measure between 0 and 1, where 0 represents impossibility and 1 represents certainty.
+",Correct Answer,
+,"What is the difference between probability and likelihood?
+","The difference between probability and likelihood is that probability is a measure of the likelihood of an event occurring based on prior knowledge or information, while likelihood is a measure of how well a certain parameter value explains the observed data. Probability is used to assign a numerical value to the likelihood of an event happening, while likelihood is used to estimate the value of a parameter given the observed data.",Correct Answer,
+,"Give me a short summary of topics covered in probability
+","Some of the topics covered in probability include sample space, events, and independence; linearity of expectation; union bound; indicator variables; variance; variance of the sum of independent random variables; median; the central limit theorem; probability distributions; and Bayes Rule and estimators.
+",Correct Answer,
+,"When was data science invented?
+","Data science as a field of study and practice emerged in the late 20th century and early 21st century. However, it is important to note that the foundations of data science can be traced back to various disciplines such as statistics, computer science, and mathematics. The term ""data science"" itself gained popularity in the early 2000s.
+",Uses Open AI,
+,"What is computer science?
+","Computer science is an academic discipline that focuses on the study of computers and computational systems. It involves the design, development, and analysis of algorithms, programming languages, operating systems, and other aspects of computer technology. Computer science also encompasses the theoretical foundations of computing and explores how computers can be used to solve problems and process information.
+",Correct Answer,
+,"Explain how machine learning works to a high school freshman in 3 sentences
+",Machine learning is a way for computers to learn from data and make predictions or decisions without being explicitly programmed. It involves training a computer algorithm using examples and patterns in the data to create a rule or model. This model can then be used to make predictions or classify new data that the computer has not seen before.,Correct Answer,
+,"Summarize how gradient descent works in 3 sentences
+","Stochastic gradient descent (SGD) is a widely-used algorithm in machine learning. It is used to minimize the error between the predicted values and the actual values in a training dataset. SGD iteratively updates the weights of the model by taking small steps in the direction of the steepest descent of the loss function.
+",Correct Answer,
+,"What is a thread in computer science?
+","The given context does not provide the definition of a thread in computer science.
+",Correct IDK,
+,"How does dijkstra's algorithm work?
+","The given context does not provide information about the working principle of Dijkstra's algorithm.
+",Correct IDK,
+,"How much can I get paid in data science?
+","I don't know the answer to that question.
+",Correct Answer,
+,"Is data science a difficult field to understand? Answer in 3 sentences
+","Comprehending the field of data science can be challenging due to its interdisciplinary nature and the rapid advancements in technology and techniques. It requires a solid understanding of mathematics, statistics, computer science, and domain knowledge. Additionally, staying updated with the latest developments and tools in data science is crucial. However, with dedication, continuous learning, and practice, it is possible to gain proficiency in the field.
+",Correct Answer,
+,"Is data science worth the effort to learn?
+","Based on the given context, it can be inferred that learning data science is worth the effort. The emergence of the web and social networks as central aspects of daily life presents both opportunities and challenges for theory. Researchers of the future will be involved with using computers to understand and extract usable information from massive data arising in applications. Additionally, the book covers the theory that is expected to be useful in the next 40 years, indicating the long-term relevance of data science.
+",Correct Answer,
+,"Is statistics and probability the same thing? Answer in 3 sentences
+","No, statistics and probability are not the same thing. Statistics is the study of data collection, analysis, interpretation, presentation, and organization. It involves methods for collecting, summarizing, and analyzing data to make inferences and draw conclusions. Probability, on the other hand, is the study of uncertainty and the likelihood of events occurring. It involves measuring and quantifying uncertainty and using mathematical models to analyze and predict the outcomes of random events. While statistics uses probability concepts, they are distinct fields of study.
+",Correct Answer,
+,"Is data science taught at UIUC?
+","Based on the given context, it is not mentioned whether the University of Illinois at Urbana-Champaign offers courses or programs in data science.
+",Correct Answer,
+,What is a tree?,"A tree in computer science is a widely used data structure that represents a hierarchical structure. It consists of nodes connected by edges, where each node can have zero or more child nodes. The topmost node in the tree is called the root, and each node in the tree except the root has exactly one parent node. Trees are used in various algorithms and data structures, such as decision trees, binary search trees, and file systems.
+",Correct Answer,
+,What is a surface integral?,A surface integral is a type of integral that is used to calculate the flux of a vector field across a surface. It involves integrating a function over a surface in three-dimensional space. The surface integral can be thought of as summing up the contributions of the function over infinitesimally small areas on the surface. The result of the surface integral gives a scalar value that represents the total amount of the function that passes through the surface.,Uses Open AI,
+2008 Financial Crisis,Briefly summarize what the 2008 financial crisis was?,"The 2008 financial crisis was primarily caused by the collapse of the housing bubble, which was fueled by low interest rates, easy credit, lack of regulation, and toxic mortgages. Trillions of dollars in risky mortgages were embedded throughout the financial system, and when the bubble burst, it led to significant losses in mortgages and mortgage-related securities. The government's rescue of Bear Stearns in 2008 temporarily calmed investor fears but created moral hazard. However, when Lehman Brothers, an even larger investment bank, was allowed to fail, it shocked the market and led to a halt in lending and a period of market paralysis and panic.",Correct Answer,
+,Give a short summary of who was responsible for the 2008 financial crisis,"According to the provided context, the report states that the crisis was a result of human mistakes, misjudgments, and misdeeds that led to systemic failures. The report places special responsibility on public leaders responsible for protecting the financial system, regulatory agencies, and the chief executives of companies whose failures contributed to the crisis. However, it does not explicitly state who can be held responsible for the 2008 financial crisis.",Correct Answer,
+,"Summarize what role Ronald Reagan played in the 2008 financial crisis
+",There is no mention of Ronald Reagan's role in the 2008 financial crisis in the provided context.,Correct IDK,
+,"Summarize what role Bill Clinton played in the 2008 financial crisis
+","The provided context does not mention the role of Bill Clinton in the 2008 financial crisis. Therefore, it is unclear what specific role, if any, he played in the crisis.",Says IDK,
+,"Summarize what role George Bush played in the 2008 financial crisis
+","The provided context does not mention the specific role of George Bush in the 2008 financial crisis. Therefore, it is unclear what role, if any, he played in the crisis based on the given information.",Says IDK,
+,"Summarize the role shorting stocks played in the 2008 financial crisis
+","Shorting stocks played a role in the 2008 financial crisis. Some investors, such as Steve Eisman and Michael Burry, had bet against mortgage-backed securities and credit default swaps, believing that the housing market was going to collapse. However, the Securities and Exchange Commission (SEC) stated that they did not have information that manipulative short selling was the cause of the collapse of Bear Stearns and Lehman Brothers or the difficulties faced by other investment banks during the crisis.",Correct Answer,
+,Tell me who Michael Burry is in 3 sentences,"Michael Burry is a doctor-turned-investor who ran a hedge fund called Scion Capital. He gained fame after the financial crisis for betting against mortgage-backed securities and buying credit default swaps on billions of dollars of mortgage-backed securities and bonds of financial companies in the housing market.
+",Correct Answer,
+,Explain what mortage-backed securities are to a five year old in 3 sentences,"Mortgage-backed securities are like a big puzzle made up of many pieces called mortgages. People who want to buy a house borrow money from a bank, and the bank puts all those loans together to make a big puzzle. Then, they sell pieces of that puzzle to other people who want to invest their money and make more money in the future.
+",Correct Answer,
+,"Are mortage-backed securities a good investment?
+","Based on the provided context, it can be inferred that mortgage-backed securities were initially seen as a good investment by informed institutional investors such as insurance companies. However, as the market shifted towards more complex structures and the financial crisis unfolded, the risks associated with mortgage-backed securities became apparent. Therefore, whether mortgage-backed securities are a good investment depends on various factors, including market conditions and the specific structure of the securities.
+",Correct Answer,
+,Explain if credit default swaps played a role in the 2008 financial crisis in 2 sentences,"Yes, credit default swaps did play a role in the 2008 financial crisis. They allowed CDO managers to create synthetic and hybrid CDOs more quickly, enabled investors to transfer the risk of default to the issuer of the credit default swap, and made correlation trading possible. However, it is important to note that there is no evidence that credit default swaps were a significant contributor to the financial crisis through ""interconnections"" among financial institutions.",Correct Answer,
+,"Which number president was George W Bush?
+","George W. Bush was the 43rd President of the United States.
+",Uses Open AI,
+,What is the 2008 financial crisis nicknamed as?,"The nickname for the 2008 financial crisis is the ""financial crisis of 2008"" or simply the ""2008 financial crisis.""
+",Wrong Answer,
+,"Explain how Obama dealt with the 2008 financial crisis in 3 sentences
+","The given context does not provide information about how President Obama specifically dealt with the 2008 financial crisis.
+",Wrong Answer,
+,"What is the Great Recession?
+","The Great Recession refers to the severe economic downturn that occurred in the United States from December 2007 to June 2009. It was caused by a financial crisis that began in 2007 and resulted in a contraction in lending and hiring. The Great Recession is considered the longest, broadest, and most severe downturn since the Great Depression of the 1930s. It had a significant impact on the U.S. economy, leading to high unemployment rates, foreclosures, and a loss of household wealth.
+",Correct Answer,
+,"Who caused the Great Depression?
+","The given context does not specifically mention the Great Depression. It primarily discusses the financial crisis of 2007-2008. Therefore, it does not provide information about the causes of the Great Depression.
+",Correct IDK,
+Cold War,Explain the cold war in 1 paragraph,"The Cold War was a global conflict between the United States and the Soviet Union that lasted from 1945 to 1989. It was characterized by intense ideological and political rivalry, as well as a constant threat of nuclear war. The United States promoted capitalism and democracy, while the Soviet Union advocated for communism. The Cold War was marked by proxy wars, espionage, and a constant arms race. It ended with the collapse of the Soviet Union and the fall of the Berlin Wall, leading to a shift in global power dynamics.",Correct Answer,
+,Summarize the cuban missile crisis in 3 sentences,"The Cuban Missile Crisis occurred in 1962 when the United States discovered that the Soviet Union was secretly placing nuclear missiles in Cuba. This led to a tense standoff between the two superpowers, with the possibility of nuclear war. Eventually, a compromise was reached, with the Soviets agreeing to remove the missiles in exchange for the US promising not to invade Cuba and removing their own missiles from Turkey.
+",Correct Answer,
+,"Give a short summary of Ronald Reagan's role in the Cold War
+","Ronald Reagan played a significant role in the Cold War. As the President of the United States from 1981 to 1989, Reagan took a strong anti-communist stance and implemented policies aimed at countering Soviet influence. He labeled the Soviet Union as the ""evil empire"" and pursued a policy of military buildup, increasing defense spending and launching the Strategic Defense Initiative (SDI), also known as ""Star Wars,"" which aimed to develop a missile defense system. Reagan's tough rhetoric and military buildup put pressure on the Soviet Union and contributed to the eventual collapse of the Communist bloc.
+",Correct Answer,
+,"When did the Soviet Union dissolve?
+","The Soviet Union dissolved in December 1991.
+",Correct Answer,
+,Summarize how the Soviet Union dissolved in 3 sentences,"The Soviet Union dissolved primarily due to a combination of factors, including the reformist policies of Mikhail Gorbachev, opposition movements in the Soviet bloc countries, and the desire for political democracy and economic liberty. Gorbachev's policies of ""perestroika"" (restructuring) and ""glasnost"" (openness) led to increased demands for political and economic reforms. This, in turn, fueled opposition movements in the Soviet bloc countries. In 1991, several Soviet Socialist Republics proclaimed their sovereignty and eventually formed the Commonwealth of Independent States (CIS), replacing the Soviet Union.",Correct Answer,
+,"Who is Vladamir Putin?
+","I don't know.
+",Correct IDK,
+,"Did the cold war almost go nuclear?
+","Yes, the Cold War came close to a nuclear conflict on several occasions. The situation became truly dramatic, with the world on the brink of nuclear war. The concept of nuclear deterrence was used as a means to prevent a military confrontation, but it also served as a stimulus for the arms race. One notable example was the Cuban Missile Crisis in October 1962, where the United States and the Soviet Union engaged in a trial of strength over the stationing of Soviet nuclear missiles in Cuba. However, the Cold War ultimately ended without a full-scale nuclear conflict.
+",Correct Answer,
+,Explain why the Cold War started in 3 sentences,"The Cold War started as a result of increasingly divergent viewpoints between the United States and the Soviet Union after World War II. The conflicts of interest and fear of the new power of the other led to a long period of international tension. The Soviets felt surrounded and threatened by the West, while the Americans were concerned about Communist expansion, and this resulted in a global conflict that affected many countries and led to a climate of fear and suspicion between the two superpowers.
+",Correct Answer,
+,"Summarize the first world war in 3 sentences
+","I'm sorry, but the given context does not provide information about the First World War.
+",Correct IDK,
+,"Why was the interstate highway system built during the cold war?
+","The given context does not provide any information about the purpose of building the interstate highway system during the Cold War. Therefore, I don't know the answer to your question.
+",Correct IDK,

@@ -47,12 +47,12 @@ pinecone.init(
 # pinecone store embeddings
 def get_vectorstore(text_chunks):
     embeddings = OpenAIEmbeddings(openai_api_key=OPEN_AI_KEY)
-    vectorstore = docsearch = Pinecone.from_texts(text_chunks, embeddings, index_name = "quadstest1",  api_key=PINECONE_API_KEY)
+    vectorstore = docsearch = Pinecone.from_texts(text_chunks, embeddings, index_name = "retro-test",  api_key=PINECONE_API_KEY)
     return vectorstore
 
 # create chain that keeps track of questions & memory
 def get_conversation_chain(vectorstore):
-    llm = ChatOpenAI(openai_api_key=OPEN_AI_KEY)
+    llm = ChatOpenAI(openai_api_key=OPEN_AI_KEY, temperature=0.2)
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
