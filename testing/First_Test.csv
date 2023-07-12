@@ -5,7 +5,7 @@ Wrong Answer: 6
 Says IDK: 6
 Correct but shouldn't: 3
 
-File Title, Question:, Response:, Result:, Notes:
+File Title:, Question:, Response:, Result:, Notes:
 Linear Algebra:, Suppose that A is a 3x7 matrix such that the equation AX=B is solvable for all B in R3. Then A has rank 3, "Yes,  that is correct. According to Theorem 2.16,  if the equation AX=B is solvable for all B in R3,  then the rank of A must be 3.", Correct Answer, Even Highlights formula number within textbook, 
 , Suppose A is an invertible matrix and B is any matrix for which AB is defined then the matrices AB and B need not have the same rank, "No,  it is not always true that the rank of AB is equal to the rank of B,  given an invertible matrix A and any matrix B such that the product AB is defined. Theorem 3.3 (Rank of Products) states that rank(AB) ≤ rank(B) and rank(AB) ≤ rank(A),  but it does not necessarily mean that the ranks are equal. In fact,  if A is an invertible matrix,  then the rank of AB is equal to the rank of B only if B is also invertible", Correct Answer,  Correct Formula Number
 , what is the intermediate value theorem, The context provided does not contain information about the Intermediate Value Theorem., Correct IDK, Testing out false positives
@@ -72,9 +72,7 @@ Constitution, Describe the 1st Amendment to a 5 year old, "The 1st Amendment is 
 , "What is the process of passing an Amendment to the US Constitution?
 ", "The process for passing an amendment to the US Constitution is outlined in Article V of the Constitution. It requires two steps: proposal and ratification.
 Proposal: An amendment can be proposed in two ways: a) By Congress: Two-thirds of both the House of Representatives and the Senate must vote in favor of the proposed amendment. b) By a Constitutional Convention: Two-thirds of the state legislatures can request Congress to call a Constitutional Convention to propose amendments. However,  this method has never been used.
-
-Ratification: After an amendment is proposed,  it must be ratified by three-fourths of the state legislatures or by special state conventions. The method of ratification is determined by Congress when proposing the amendment.
-
+Ratification: After an amendment is proposed,   it must be ratified by three-fourths of the state legislatures or by special state conventions. The method of ratification is determined by Congress when proposing the amendment.
 Once an amendment is ratified by the required number of states,  it becomes part of the Constitution.", Correct Answer, 
 , "What is an executive order?
 ", "An executive order is a directive or command issued by the President of the United States that manages operations of the federal government. It has the force of law and is used to implement and enforce policies,  laws,  and regulations.
