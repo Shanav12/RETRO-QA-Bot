@@ -1,6 +1,6 @@
 # 🎉 Welcome to the Ultimate Query and Answer App! 🚀
 
-Hello there, tech enthusiasts! 👋 Brace yourself for a one-of-a-kind document-handling experience with our cutting-edge application. Packed with a combination of advanced tech, our app ensures effective and precise document handling and retrieval. 
+Hello there! 👋 Get ready for an unprecedented document-handling experience with our cutting-edge model implementations. Our app capitalizes on sophisticated technologies to ensure efficient document storage, retrieval, and querying, with an impressive reduction in language model hallucinations.
 
 ## 📚 Contents
 
