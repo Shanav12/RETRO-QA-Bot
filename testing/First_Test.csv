@@ -3,8 +3,14 @@ Correct IDK: 26
 Uses OpenAI: 21
 Wrong Answer: 9
 Says IDK: 9
+Correct Answer: 133
+Correct IDK: 26
+Uses OpenAI: 21
+Wrong Answer: 9
+Says IDK: 9
 Correct but shouldn't: 3
 
+File Title:, Question:, Response:, Result:, Notes:, 
 File Title:, Question:, Response:, Result:, Notes:, 
 Linear Algebra:, Suppose that A is a 3x7 matrix such that the equation AX=B is solvable for all B in R3. Then A has rank 3, "Yes, that is correct. According to Theorem 2.16, if the equation AX=B is solvable for all B in R3, then the rank of A must be 3.", Correct Answer, Even Highlights formula number within textbook, 
 , Suppose A is an invertible matrix and B is any matrix for which AB is defined then the matrices AB and B need not have the same rank, "No, it is not always true that the rank of AB is equal to the rank of B, given an invertible matrix A and any matrix B such that the product AB is defined. Theorem 3.3 (Rank of Products) states that rank(AB) ≤ rank(B) and rank(AB) ≤ rank(A), but it does not necessarily mean that the ranks are equal. In fact, if A is an invertible matrix, then the rank of AB is equal to the rank of B only if B is also invertible", Correct Answer, Correct Formula Number
