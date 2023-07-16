@@ -40,7 +40,7 @@ from llama_index.retrievers import (
 
 from typing import List
 
-openai.api_key = "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"
+openai.api_key = ""
 
 OPEN_AI_KEY = '' # insert 
 PINECONE_API_KEY = '' # insert 
