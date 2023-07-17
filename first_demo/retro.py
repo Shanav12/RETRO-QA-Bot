@@ -45,7 +45,15 @@ pinecone.init(
 # pinecone store embeddings
 def get_vectorstore(text_chunks):
     embeddings = OpenAIEmbeddings(openai_api_key=OPEN_AI_KEY)
-    vectorstore = docsearch = Pinecone.from_texts(text_chunks, embeddings, index_name = "retro-test",  api_key=PINECONE_API_KEY)
+
+    @st.cache_resource
+    def load_pinecone_existing_index():
+        pass
+        docsearch = Pinecone.from_existing_index(index_name='retro-test', embedding=embeddings)
+        return docsearch
+    docsearch=load_pinecone_existing_index()
+
+    vectorstore = docsearch 
     return vectorstore
 
 # create chain that keeps track of questions & memory
