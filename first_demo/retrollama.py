@@ -74,9 +74,16 @@ def pdfs(pdf):
 
 
 def get_pdf_texts(pdf_docs):
+    text_chunks = []  # Initialize as an empty list
     for pdf in pdf_docs:
-        text = pdfs(pdf)
-    return text
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            shutil.copyfileobj(pdf, temp_file)
+            temp_file_path = temp_file.name
+
+        nodes = pdfs(temp_file_path)
+        text_chunks.extend(nodes)
+
+    return text_chunks
 
 
 
