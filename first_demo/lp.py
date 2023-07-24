@@ -44,7 +44,7 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.vector_stores import PineconeVectorStore
 from llama_index import Document
 
-OPEN_AI_KEY = # insert 
+OPEN_AI_KEY =  # insert 
 PINECONE_API_KEY = # insert 
 PINECONE_API_ENV = # insert 
 
@@ -61,33 +61,22 @@ def get_pdf_text(pdf_files):
 
 # Function to get the documents using SimpleDirectoryReader
 
-def get_documents(pdf_files):
-    temp_dir = tempfile.mkdtemp()  # Create a temporary directory
-    temp_file_paths = []  # Store the paths of temporary files for cleanup
+def get_documents(pdf_names, pdfs):
+    documents = []
+    for i in range(len(pdfs)):
+        # File exists, continue with your code logic
+        temp_dir = tempfile.mkdtemp()  # Create a temporary directory
+        temp_file_path = os.path.join(temp_dir, pdf_names[i])
 
-    for pdf_file in pdf_files:
-        # Ensure the file is not None and is a PDF
-        if pdf_file is not None and pdf_file.type == "application/pdf":
-            temp_file_path = os.path.join(temp_dir, pdf_file.name)
+        # Copy the file to the temporary directory
+        with open(temp_file_path, "wb") as temp_file:
+            temp_file.write(pdfs[i].getbuffer())
 
-            # Save the file contents to the temporary file
-            with open(temp_file_path, 'wb') as temp_file:
-                temp_file.write(pdf_file.read())  # Write the file contents
-
-            temp_file_paths.append(temp_file_path)
-
-    try:
         # Use the temporary directory path with the SimpleDirectoryReader
-        documents = SimpleDirectoryReader(temp_dir).load_data()
-    except Exception as e:
-        # Handle any exceptions that occur during loading PDF data
-        print("Error loading PDF data:", e)
-        documents = None
+        documents.extend(SimpleDirectoryReader(temp_dir).load_data())
 
-    # Cleanup the temporary files and directory
-    for temp_file_path in temp_file_paths:
-        os.remove(temp_file_path)
-    shutil.rmtree(temp_dir)
+        # Cleanup the temporary directory
+        shutil.rmtree(temp_dir)
 
     return documents
 
@@ -172,10 +161,14 @@ def main():
         )
         if st.button("Process"):
             with st.spinner("Processing"):
-                # Get pdf text
-                raw_text = get_pdf_text(pdf_docs)
+                file_names = []
+                if pdf_docs:
+                    file_names = [file.name for file in pdf_docs]
 
-                documents = get_documents(pdf_docs)
+                # Get pdf text
+                #raw_text = get_pdf_text(file_names)
+
+                documents = get_documents(file_names, pdf_docs)
 
                 #nodes = node(documents)
 
