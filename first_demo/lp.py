@@ -45,8 +45,9 @@ from llama_index.vector_stores import PineconeVectorStore
 from llama_index import Document
 
 OPEN_AI_KEY =  # insert 
-PINECONE_API_KEY = # insert 
-PINECONE_API_ENV = # insert 
+openai.api_key = # insert 
+PINECONE_API_KEY =  # insert 
+PINECONE_API_ENV =  # insert 
 
 
 # Function to get the text from PDFs
@@ -91,7 +92,7 @@ def create_index(documents):
     pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_API_ENV)
 
     # Setting the index name
-    index_name = 'your_index_name'
+    index_name = 'retro-test'
 
     # Connect to the index
     pinecone_index = pinecone.Index(index_name)
@@ -109,34 +110,41 @@ def create_index(documents):
         documents, storage_context=storage_context, service_context=service_context
     )
 
-    return index
+    return index, vector_store
 
 
 
 
 # Function to create the conversation chain
+# create chain that keeps track of questions & memory
 def get_conversation_chain(vectorstore):
-    llm = ChatOpenAI(openai_api_key=OPEN_AI_KEY)
-    memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
-    conversation_chain = ConversationalRetrievalChain.from_llm(
-        llm=llm,
-        retriever=vectorstore.as_retriever(),
-        memory=memory
+    vector_index  = vectorstore
+    vector_retriever = VectorIndexRetriever(index=vector_index, similarity_top_k=2)
+
+    # define response synthesizer
+    response_synthesizer = get_response_synthesizer()
+
+
+    # vector query engine
+    vector_query_engine = RetrieverQueryEngine(
+        retriever=vector_retriever,
+        response_synthesizer=response_synthesizer
     )
-    return conversation_chain
+    return vector_query_engine
+
+def get_vectorstore(text_chunks):
+    nodes = text_chunks
+    storage_context = StorageContext.from_defaults()
+    storage_context.docstore.add_documents(nodes)
+    vector_index = VectorStoreIndex(nodes, storage_context=storage_context)
+    keyword_index = SimpleKeywordTableIndex(nodes, storage_context=storage_context)
+    return vector_index, keyword_index
 
 
 # Function to handle user input and have a conversation
-def handle_userinput(user_question):
-    response = st.session_state.conversation({'question': user_question})
-    st.session_state.chat_history = response['chat_history']
-
-    for i, message in enumerate(st.session_state.chat_history):
-        if i % 2 == 0:
-            st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-        else:
-            st.write(bot_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
-
+def handle_userinput2(user_question, engine):
+    response = engine.query(user_question)
+    st.write(str(response))
 
 # Main function
 def main():
@@ -150,9 +158,8 @@ def main():
 
     st.header("RETRO")
     user_question = st.text_input("Ask a question about your documents:")
-    if user_question:
-        handle_userinput(user_question)
 
+    engine = None
     with st.sidebar:
         st.subheader("Your documents")
         pdf_docs = st.file_uploader(
@@ -172,8 +179,15 @@ def main():
 
                 #nodes = node(documents)
 
-                st.session_state.conversation  = create_index(documents)
+                index, vectorstore = create_index(documents)
+
+                engine = index.as_query_engine()
+
+    if engine:
+        print('hello')
+        handle_userinput2(user_question, engine)
 
 
 if __name__ == '__main__':
     main()
+
