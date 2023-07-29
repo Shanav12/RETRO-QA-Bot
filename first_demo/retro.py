@@ -5,14 +5,59 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Pinecone
 import pinecone
+import sys
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 from htmlTemplates import css, bot_template, user_template
+from lp import (
+    get_documents, 
+    create_index,
+    handle_userinput2
+)
+import logging
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
+import shutil
+import os
+import tempfile
+import pypdf
+import openai
+from llama_index import (
+    VectorStoreIndex,
+    SimpleKeywordTableIndex,
+    SimpleDirectoryReader,
+    ServiceContext,
+    StorageContext,
+)
 
-OPEN_AI_KEY = '' # insert 
-PINECONE_API_KEY = '' # insert 
-PINECONE_API_ENV = '' # insert 
+from llama_index import get_response_synthesizer
+from llama_index.query_engine import RetrieverQueryEngine
+
+# import QueryBundle
+from llama_index import QueryBundle
+
+# import NodeWithScore
+from llama_index.schema import NodeWithScore
+
+# Retrievers
+from llama_index.retrievers import (
+    BaseRetriever,
+    VectorIndexRetriever,
+    KeywordTableSimpleRetriever,
+)
+
+from typing import List
+from llama_index.node_parser import SimpleNodeParser
+
+from llama_index import GPTVectorStoreIndex, StorageContext, ServiceContext
+from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.vector_stores import PineconeVectorStore
+from llama_index import Document
+OPEN_AI_KEY =  # insert 
+openai.api_key = # insert 
+PINECONE_API_KEY =  # insert 
+PINECONE_API_ENV =  # insert 
 
 # gets the pdf text
 def get_pdf_text(pdf_docs):
@@ -35,11 +80,13 @@ def create_embeddings(text_chunks):
     text_chunk_embeddings = embeddings.embed_documents([text for text in text_chunks])
     return text_chunk_embeddings
 
+# instantiate the GPT 3.5 turbo model
+
 # initialize pinecone
 pinecone.init(
     api_key=PINECONE_API_KEY,  
     environment=PINECONE_API_ENV, 
-    index_name = "retro-test"
+    index_name = 'retro-test'
 )
 
 # pinecone store embeddings
@@ -58,7 +105,7 @@ def get_vectorstore(text_chunks):
 
 # create chain that keeps track of questions & memory
 def get_conversation_chain(vectorstore):
-    llm = ChatOpenAI(openai_api_key=OPEN_AI_KEY, temperature=0.2)
+    llm = ChatOpenAI(openai_api_key=OPEN_AI_KEY)
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
@@ -91,9 +138,12 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
 
+    # Add buttons for "langchain & pinecone" and "llama-index & pinecone"
+    selected_option = st.selectbox("Select backend:", ["Langchain & Pinecone", "Llama-index & Pinecone"])
+    engine = None
     st.header("RETRO")
     user_question = st.text_input("Ask a question about your documents:")
-    if user_question:
+    if user_question and selected_option == "Langchain & Pinecone":
         handle_userinput(user_question)
 
     with st.sidebar:
@@ -103,17 +153,39 @@ def main():
             accept_multiple_files=True)
         if st.button("Process"):
             with st.spinner("Processing"):
-                # get pdf text
-                raw_text = get_pdf_text(pdf_docs)
+                if selected_option == "Langchain & Pinecone":
+                    # get pdf text
+                    raw_text = get_pdf_text(pdf_docs)
 
-                # get the text chunks
-                text_chunks = get_text_chunks(raw_text)
+                    # get the text chunks
+                    text_chunks = get_text_chunks(raw_text)
 
-                # create vector store
-                vectorstore = get_vectorstore(text_chunks)
+                    # create vector store
+                    vectorstore = get_vectorstore(text_chunks)
 
-                # create conversation chain
-                st.session_state.conversation = get_conversation_chain(vectorstore)
+                    # create conversation chain
+                    st.session_state.conversation = get_conversation_chain(vectorstore)
+                elif selected_option == "Llama-index & Pinecone":
+                    file_names = []
+                    if pdf_docs:
+                        file_names = [file.name for file in pdf_docs]
+
+                    # Get pdf text
+                    #raw_text = get_pdf_text(file_names)
+
+                    documents = get_documents(file_names, pdf_docs)
+
+                    #nodes = node(documents)
+
+                    index, vectorstore = create_index(documents)
+
+                    engine = index.as_query_engine()
+
+    if engine and selected_option == "Llama-index & Pinecone":
+        print('hello')
+        handle_userinput2(user_question, engine)
+
+
 
 if __name__ == '__main__':
     main()
