@@ -12,12 +12,15 @@ import os
 import tempfile
 import pypdf
 import openai
+from langchain.chat_models import ChatOpenAI
+from llama_index.evaluation import QueryResponseEvaluator
 from llama_index import (
     VectorStoreIndex,
     SimpleKeywordTableIndex,
     SimpleDirectoryReader,
     ServiceContext,
     StorageContext,
+    LLMPredictor
 )
 
 from llama_index import get_response_synthesizer
@@ -44,9 +47,9 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.vector_stores import PineconeVectorStore
 from llama_index import Document
 
-OPEN_AI_KEY =  # insert 
+OPEN_AI_KEY =  # insert
 openai.api_key = # insert
-PINECONE_API_KEY =  # insert 
+PINECONE_API_KEY =  # insert
 PINECONE_API_ENV =  # insert
 
 # Function to get the text from PDFs
@@ -143,8 +146,16 @@ def get_vectorstore(text_chunks):
 # Function to handle user input and have a conversation
 def handle_userinput2(user_question, engine):
     response = engine.query(user_question)
+    llm_predictor = LLMPredictor(llm=ChatOpenAI(temperature=0.5, model_name="gpt-3.5-turbo", 
+                                            openai_api_key='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'))
+    service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor)
+    evaluator = QueryResponseEvaluator(service_context=service_context)
+    context_used = evaluator.evaluate(user_question, response)
     st.write(user_template.replace("{{MSG}}", user_question), unsafe_allow_html=True)
-    st.write(bot_template.replace("{{MSG}}", str(response)), unsafe_allow_html=True)
+    if context_used == 'YES':
+        st.write(bot_template.replace("{{MSG}}", str(response)), unsafe_allow_html=True)
+    else:
+        st.write(bot_template.replace("{{MSG}}", 'The provided context does not answer your question.'), unsafe_allow_html=True)
 
 
 

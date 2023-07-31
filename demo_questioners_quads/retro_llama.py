@@ -34,7 +34,7 @@ from llama_index.schema import NodeWithScore
 
 # Retrievers
 from llama_index.retrievers import (
-    BaseRetriever,f
+    BaseRetriever,
     VectorIndexRetriever,
     KeywordTableSimpleRetriever,
 )
@@ -42,9 +42,9 @@ from llama_index.retrievers import (
 from typing import List
 
 
-openai.api_key = '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' # insert 
-PINECONE_API_KEY = '1ce5d773-0084-43c8-8cc0-350904058516'
-PINECONE_API_ENV = 'asia-southeast1-gcp-free'
+openai.api_key = # insert
+PINECONE_API_KEY =  # insert
+PINECONE_API_ENV =  # insert
 
 def pdfs(pdf):
 

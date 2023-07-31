@@ -57,9 +57,9 @@ from llama_index import Document
 
 
 
-OPEN_AI_KEY =  # insert 
+OPEN_AI_KEY =  # insert
 openai.api_key = # insert
-PINECONE_API_KEY =  # insert 
+PINECONE_API_KEY =  # insert
 PINECONE_API_ENV =  # insert
 
 
