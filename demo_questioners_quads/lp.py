@@ -48,10 +48,10 @@ from llama_index.vector_stores import PineconeVectorStore
 from llama_index import Document
 
 
-OPEN_AI_KEY = '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' 
-openai.api_key = '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'
-PINECONE_API_KEY =  '1ce5d773-0084-43c8-8cc0-350904058516'
-PINECONE_API_ENV =  'asia-southeast1-gcp-free'
+OPEN_AI_KEY = # insert 
+openai.api_key = # insert
+PINECONE_API_KEY =  # insert
+PINECONE_API_ENV =  # insert
 
 # Function to get the text from PDFs
 def get_pdf_text(pdf_files):
