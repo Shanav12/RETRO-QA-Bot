@@ -57,10 +57,10 @@ from llama_index import Document
 
 
 
-OPEN_AI_KEY =  # insert
-openai.api_key = # insert
-PINECONE_API_KEY =  # insert
-PINECONE_API_ENV =  # insert
+OPEN_AI_KEY = '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' 
+openai.api_key = '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'
+PINECONE_API_KEY =  '1ce5d773-0084-43c8-8cc0-350904058516'
+PINECONE_API_ENV =  'asia-southeast1-gcp-free'
 
 
 
@@ -141,7 +141,6 @@ def create_llama_vector(docs):
 
     storage_context = StorageContext.from_defaults()
     index.storage_context.persist(f"./vector/{dir}")
-    print ("Done")
 
 
 
@@ -159,7 +158,7 @@ def main():
         st.session_state.chat_history = None
 
     # Add buttons for "langchain & pinecone" and "llama-index & pinecone"
-    selected_option = st.selectbox("Select backend:", ["Langchain & Pinecone", "Llama-index & Pinecone"])
+    selected_option = st.selectbox("Select backend:", ["Langchain & Pinecone", "Llama-Index & Pinecone"])
     engine = None
     st.header("RETRO")
     user_question = st.text_input("Ask a question about your documents:")
@@ -170,7 +169,7 @@ def main():
         st.image("images/full_logo.png", use_column_width=True)
         st.subheader("Your documents")
         pdf_docs = st.file_uploader(
-            "Upload your PDFs here and click on 'Process", 
+            "Upload your PDFs here and click on 'Process'", 
             accept_multiple_files=True)
         if st.button("Process"):
             with st.spinner("Processing"):
@@ -186,7 +185,7 @@ def main():
 
                     # create conversation chain
                     st.session_state.conversation = get_conversation_chain(vectorstore)
-                elif selected_option == "Llama-index & Pinecone":
+                elif selected_option == "Llama-Index & Pinecone":
                     file_names = []
                     if pdf_docs:
                         file_names = [file.name for file in pdf_docs]
@@ -202,8 +201,7 @@ def main():
 
                     engine = index.as_query_engine()
 
-    if engine and selected_option == "Llama-index & Pinecone":
-        print('hello')
+    if engine and selected_option == "Llama-Index & Pinecone":
         handle_userinput2(user_question, engine)
 
 
