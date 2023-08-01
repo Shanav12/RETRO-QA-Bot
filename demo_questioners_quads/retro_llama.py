@@ -1,4 +1,5 @@
 import streamlit as st
+import config
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 import pinecone
@@ -42,9 +43,9 @@ from llama_index.retrievers import (
 from typing import List
 
 
-openai.api_key = # insert
-PINECONE_API_KEY =  # insert
-PINECONE_API_ENV =  # insert
+openai.api_key = config.OPEN_AI_KEY
+PINECONE_API_KEY =  config.PINECONE_API_KEY
+PINECONE_API_ENV =  config.PINECONE_API_ENV
 
 def pdfs(pdf):
 

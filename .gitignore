@@ -193,3 +193,5 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/react,django
 backend/quants/faiss_store.pkl
 backend/quants/docs.index
+
+demo_questioners_quads/config.py

@@ -1,4 +1,5 @@
 import streamlit as st
+import config
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
@@ -57,10 +58,10 @@ from llama_index import Document
 
 
 
-OPEN_AI_KEY = # insert 
-openai.api_key = # insert
-PINECONE_API_KEY =  # insert
-PINECONE_API_ENV =  # insert
+OPEN_AI_KEY = config.OPEN_AI_KEY
+openai.api_key = config.OPEN_AI_KEY
+PINECONE_API_KEY =  config.PINECONE_API_KEY
+PINECONE_API_ENV =  config.PINECONE_API_ENV
 
 
 

@@ -1,4 +1,5 @@
 import streamlit as st
+import config
 from htmlTemplates import css, bot_template, user_template
 import pinecone
 import os
@@ -48,10 +49,10 @@ from llama_index.vector_stores import PineconeVectorStore
 from llama_index import Document
 
 
-OPEN_AI_KEY = # insert 
-openai.api_key = # insert
-PINECONE_API_KEY =  # insert
-PINECONE_API_ENV =  # insert
+OPEN_AI_KEY = config.OPEN_AI_KEY
+openai.api_key = config.OPEN_AI_KEY
+PINECONE_API_KEY =  config.PINECONE_API_KEY
+PINECONE_API_ENV =  config.PINECONE_API_ENV
 
 # Function to get the text from PDFs
 def get_pdf_text(pdf_files):
@@ -155,8 +156,8 @@ def handle_userinput2(user_question, engine):
 
     response = f'Answer: {str(response)} \n \n Context Used: {response.source_nodes[0].node.text} \n'
 
-
     st.write(user_template.replace("{{MSG}}", user_question), unsafe_allow_html=True)
+
     if context_used == 'YES':
         st.write(bot_template.replace("{{MSG}}", response), unsafe_allow_html=True)
     else:

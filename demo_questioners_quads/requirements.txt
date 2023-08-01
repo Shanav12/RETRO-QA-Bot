@@ -4,6 +4,10 @@ python-dotenv==1.0.0
 streamlit==1.18.1
 openai==0.27.6
 faiss-cpu==1.7.4
+tiktoken==0.4.0
+pinecone-client==2.2.2
+llama-index==0.7.9
+
 
 # uncomment to use huggingface llms
 # huggingface-hub==0.14.1
