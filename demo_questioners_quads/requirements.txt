@@ -9,6 +9,7 @@ pinecone-client==2.2.2
 llama-index==0.7.9
 
 
+
 # uncomment to use huggingface llms
 # huggingface-hub==0.14.1
 

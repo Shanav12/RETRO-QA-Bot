@@ -1,5 +1,4 @@
 import streamlit as st
-import config
 from htmlTemplates import css, bot_template, user_template
 import pinecone
 import os
@@ -49,10 +48,11 @@ from llama_index.vector_stores import PineconeVectorStore
 from llama_index import Document
 
 
-OPEN_AI_KEY = config.OPEN_AI_KEY
-openai.api_key = config.OPEN_AI_KEY
-PINECONE_API_KEY =  config.PINECONE_API_KEY
-PINECONE_API_ENV =  config.PINECONE_API_ENV
+
+OPEN_AI_KEY = # insert
+openai.api_key = # insert
+PINECONE_API_KEY =  # insert
+PINECONE_API_ENV =  # insert
 
 # Function to get the text from PDFs
 def get_pdf_text(pdf_files):
