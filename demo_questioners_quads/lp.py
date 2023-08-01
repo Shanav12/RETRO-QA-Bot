@@ -154,7 +154,7 @@ def handle_userinput2(user_question, engine):
     evaluator = QueryResponseEvaluator(service_context=service_context)
     context_used = evaluator.evaluate(user_question, response)
 
-    response = f'Answer: {str(response)} \n \n Context Used: {response.source_nodes[0].node.text} \n'
+    response = f'Answer: {str(response)} \n\n\n Context Used from Source: {response.source_nodes[0].node.text} \n'
 
     st.write(user_template.replace("{{MSG}}", user_question), unsafe_allow_html=True)
 
